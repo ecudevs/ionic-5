@@ -1,0 +1,30 @@
+<ion-list>
+  <ion-item>
+    <ion-label position="floating">Nombre</ion-label>
+    <ion-input [(ngModel)]="producto.nombre"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Url Imagen</ion-label>
+    <ion-input [(ngModel)]="producto.urlImage"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Categoría</ion-label>
+    <ion-select
+      [(ngModel)]="producto.categoria"
+      placeholder="Selecciona una opción"
+    >
+      <ion-select-option value="BEBIDAS">Bebidas</ion-select-option>
+      <ion-select-option value="ALIMENTOS">Alimentos</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Precio</ion-label>
+    <ion-input [(ngModel)]="producto.precio"></ion-input> </ion-item
+  ><ion-item>
+    <ion-label position="floating">Stock</ion-label>
+    <ion-input [(ngModel)]="producto.stock"></ion-input>
+  </ion-item>
+  <ion-button (click)="guardar()" expand="full" color="danger"
+    >Guardar</ion-button
+  >
+</ion-list>
