@@ -20,6 +20,7 @@ import { ProductoListComponent } from "../common/producto-list/producto-list.com
     ProductoCardComponent,
     ProductoFormComponent,
     ProductoListComponent
-  ]
+  ],
+  entryComponents: [ProductoFormComponent]
 })
 export class Tab1PageModule {}

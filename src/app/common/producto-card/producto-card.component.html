@@ -1,10 +1,26 @@
 <ion-card>
+  <ion-img [src]="producto.imagen"></ion-img>
   <ion-card-header>
-    <ion-card-subtitle>{{ producto.nombre }}</ion-card-subtitle>
-    <ion-card-title>{{ producto.stock }}</ion-card-title>
+    <ion-card-subtitle>{{ producto.categoria }}</ion-card-subtitle>
+    <ion-card-title>{{ producto.nombre }}</ion-card-title>
   </ion-card-header>
-  <ion-card-content>
-    <p>Categoría: {{ producto.categoria }}</p>
-    <p>Precio: {{ producto.precio }}</p>
+  <ion-card-content
+    ><ion-item>
+      <ion-icon name="cash" slot="start"></ion-icon>
+      <ion-label class="ion-text-center">{{ producto.precio }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="basket" slot="start"></ion-icon>
+      <ion-label class="ion-text-center">{{ producto.stock }}</ion-label>
+      <ion-button (click)="_compra()" color="danger" fill="outline" slot="end">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </ion-item>
   </ion-card-content>
+  <ion-button color="danger" expand="full" (click)="_editar()">
+    <ion-icon name="create"></ion-icon>
+    Editar </ion-button
+  ><ion-button color="danger" expand="full" (click)="_eliminar()">
+    Eliminar
+  </ion-button>
 </ion-card>

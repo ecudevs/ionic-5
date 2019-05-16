@@ -5,9 +5,18 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
   <!-- <app-producto-card></app-producto-card> -->
   <!-- <app-producto-form></app-producto-form> -->
-  <app-producto-list [listaProductos]="productos"></app-producto-list>
+  <app-producto-list
+    [listaProductos]="productos"
+    (editar)="mostrarModal($event)"
+    (eliminar)="eliminar($event)"
+  ></app-producto-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="danger" (click)="mostrarModal()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

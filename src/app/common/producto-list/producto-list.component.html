@@ -1,4 +1,7 @@
 <app-producto-card
   *ngFor="let producto of listaProductos"
   [producto]="producto"
+  (editar)="_editar($event)"
+  (eliminar)="_eliminar($event)"
+  (comprar)="_comprar($event)"
 ></app-producto-card>

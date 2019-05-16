@@ -1,5 +1,9 @@
-import { Component, OnInit } from "@angular/core";
-import { AlertController, ToastController } from "@ionic/angular";
+import { Component, OnInit, Input } from "@angular/core";
+import {
+  AlertController,
+  ToastController,
+  ModalController
+} from "@ionic/angular";
 
 @Component({
   selector: "app-producto-form",
@@ -7,35 +11,40 @@ import { AlertController, ToastController } from "@ionic/angular";
   styleUrls: ["./producto-form.component.scss"]
 })
 export class ProductoFormComponent implements OnInit {
-  producto: any = { nombre: "Coca - Cola" };
+  @Input() producto: any = {};
 
   constructor(
     public alertController: AlertController,
-    public toastController: ToastController
+    public toastController: ToastController,
+    private modalController: ModalController
   ) {}
 
   ngOnInit() {}
 
   async guardar() {
-    console.log(this.producto);
-    const alert = await this.alertController.create({
-      header: "Guardando",
-      message:
-        '<div class="ion-text-center"><ion-spinner name="crescent"></ion-spinner></div>'
+    this.modalController.dismiss({
+      producto: this.producto,
+      otrosDatos: {}
     });
+    // console.log(this.producto);
+    // const alert = await this.alertController.create({
+    //   header: "Guardando",
+    //   message:
+    //     '<div class="ion-text-center"><ion-spinner name="crescent"></ion-spinner></div>'
+    // });
 
-    await alert.present();
+    // await alert.present();
 
-    setTimeout(async () => {
-      await alert.dismiss();
+    // setTimeout(async () => {
+    //   await alert.dismiss();
 
-      const toast = await this.toastController.create({
-        message: "Se guardó el producto!",
-        duration: 2000
-      });
-      toast.present();
+    //   const toast = await this.toastController.create({
+    //     message: "Se guardó el producto!",
+    //     duration: 2000
+    //   });
+    //   toast.present();
 
-      this.producto = {};
-    }, 2000);
+    //   this.producto = {};
+    // }, 2000);
   }
 }
