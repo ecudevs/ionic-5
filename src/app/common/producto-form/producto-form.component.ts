@@ -16,7 +16,7 @@ export class ProductoFormComponent implements OnInit {
   constructor(
     public alertController: AlertController,
     public toastController: ToastController,
-    private modalController: ModalController
+    public modalController: ModalController
   ) {}
 
   ngOnInit() {}

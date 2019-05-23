@@ -9,35 +9,65 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-list>
-    <ion-item>
-      <ion-label position="floating">Nombre</ion-label>
-      <ion-input [(ngModel)]="producto.nombre"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Url Imagen</ion-label>
-      <ion-input [(ngModel)]="producto.imagen"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>Categoría</ion-label>
-      <ion-select
-        [(ngModel)]="producto.categoria"
-        placeholder="Selecciona una opción"
+  <form #f="ngForm" name="form" (ngSubmit)="f.valid && guardar()">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input
+          [(ngModel)]="producto.nombre"
+          name="nombre"
+          #nombre="ngModel"
+          required
+        ></ion-input>
+      </ion-item>
+      <ion-item *ngIf="f.submitted && !nombre.valid">
+        <p>Ingrese un nombre válido</p>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Url Imagen</ion-label>
+        <ion-input
+          [(ngModel)]="producto.imagen"
+          name="imagen"
+          #imagen="ngModel"
+          required
+        ></ion-input>
+      </ion-item>
+      <ion-item *ngIf="f.submitted && !imagen.valid">
+        <p>Ingrese una Url de imagen válida</p>
+      </ion-item>
+      <ion-item>
+        <ion-label>Categoría</ion-label>
+        <ion-select
+          [(ngModel)]="producto.categoria"
+          name="categoria"
+          #categoria="ngModel"
+          placeholder="Selecciona una opción"
+        >
+          <ion-select-option value="BEBIDAS">Bebidas</ion-select-option>
+          <ion-select-option value="ALIMENTOS">Alimentos</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Precio</ion-label>
+        <ion-input
+          [(ngModel)]="producto.precio"
+          name="precio"
+          #precio="ngModel"
+          appNumero
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Stock</ion-label>
+        <ion-input
+          [(ngModel)]="producto.stock"
+          name="stock"
+          #stock="ngModel"
+          appNumero
+        ></ion-input>
+      </ion-item>
+      <ion-button type="submit" expand="full" color="danger"
+        >Guardar</ion-button
       >
-        <ion-select-option value="BEBIDAS">Bebidas</ion-select-option>
-        <ion-select-option value="ALIMENTOS">Alimentos</ion-select-option>
-      </ion-select>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Precio</ion-label>
-      <ion-input [(ngModel)]="producto.precio"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Stock</ion-label>
-      <ion-input [(ngModel)]="producto.stock"></ion-input>
-    </ion-item>
-    <ion-button (click)="guardar()" expand="full" color="danger"
-      >Guardar</ion-button
-    >
-  </ion-list>
+    </ion-list>
+  </form>
 </ion-content>

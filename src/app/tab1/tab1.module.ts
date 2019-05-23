@@ -7,6 +7,8 @@ import { Tab1Page } from "./tab1.page";
 import { ProductoCardComponent } from "../common/producto-card/producto-card.component";
 import { ProductoFormComponent } from "../common/producto-form/producto-form.component";
 import { ProductoListComponent } from "../common/producto-list/producto-list.component";
+import { NumeroDirective } from "../_directives/numero.directive";
+import { DecimalPipe } from "../_pipe/decimal.pipe";
 
 @NgModule({
   imports: [
@@ -19,7 +21,9 @@ import { ProductoListComponent } from "../common/producto-list/producto-list.com
     Tab1Page,
     ProductoCardComponent,
     ProductoFormComponent,
-    ProductoListComponent
+    ProductoListComponent,
+    NumeroDirective,
+    DecimalPipe
   ],
   entryComponents: [ProductoFormComponent]
 })

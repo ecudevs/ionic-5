@@ -9,6 +9,8 @@ import { StatusBar } from "@ionic-native/status-bar/ngx";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HttpModule } from "@angular/http";
+import { NumeroDirective } from "./_directives/numero.directive";
+import { DecimalPipe } from "./_pipe/decimal.pipe";
 
 @NgModule({
   declarations: [AppComponent],
